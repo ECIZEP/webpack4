@@ -19,4 +19,3 @@ app.use(hotMiddleware(devCompiler, {
 }))
 
 app.listen(3001);
-

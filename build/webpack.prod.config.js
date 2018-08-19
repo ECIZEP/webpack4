@@ -6,19 +6,23 @@ const merge = require('webpack-merge');
 const baseConfig = require('./webpack.base.config.js');
 
 module.exports = merge(baseConfig, {
-    mode: "development",
+    mode: "production",
     entry: {
-        app: ['./src/index.jsx', 'webpack-hot-middleware/client?path=/__hmr&reload=true']
+        app: ['./src/index.jsx']
     },
     output: {
-        publicPath: '/'
+        publicPath: './'
     },
     plugins: [
         new htmlWebpackPlugin({
             template: 'index.html',
             filename: 'index.html'
         }),
-        new webpack.HotModuleReplacementPlugin()
+        new cleanWebpackPlugin('dist/', {
+            // 项目根目录
+            root: path.resolve(__dirname, '../'),
+            verbose: true
+        })
     ],
     devtool: 'none'
 });

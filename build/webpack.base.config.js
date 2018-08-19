@@ -8,6 +8,10 @@ module.exports = {
         filename: '[name].[hash:8].js',
         chunkFilename: '[name].[hash:8].js'
     },
+    resolve: {
+        //后缀名自动补全
+        extensions: ['.js', '.jsx', '.less', '.scss', '.css'],
+    },
     module: {
         rules: [
             {
@@ -15,7 +19,8 @@ module.exports = {
                 exclude: [/node_modules/],
                 type: 'javascript/auto',
                 use: 'babel-loader'
-            }, {
+            },
+            {
                 test: /\.(less|css)$/,
                 exclude:[/node_modules/],
                 use: [
@@ -28,6 +33,28 @@ module.exports = {
                     },
                     'postcss-loader',
                     'less-loader'
+                ]
+            },
+            {
+                test: /\.(png|jpg|gif|jpeg)$/,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 10240
+                        }
+                    }
+                ]
+            },
+            {
+                test:  /\.(ttf|eot|svg|woff)(\?\S*)*$/,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 10240
+                        }
+                    }
                 ]
             }
         ]
