@@ -18,7 +18,10 @@ module.exports = {
                 test: /\.(js|jsx)$/,
                 exclude: [/node_modules/],
                 type: 'javascript/auto',
-                use: 'babel-loader'
+                use: [
+                    'babel-loader',
+                    'eslint-loader'
+                ]
             },
             {
                 test: /\.(less|css)$/,

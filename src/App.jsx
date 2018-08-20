@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { hot } from 'react-hot-loader';
 import Loadable from 'react-loadable';
 import './index.less';
-
 
 import { HashRouter, Route, Switch} from 'react-router-dom';
 const PageA = Loadable({
@@ -25,7 +24,7 @@ import logo from '../public/images/react-logo.png'
     module.hot.accept();
 } */
   
-class App extends Component {
+class App extends React.Component {
     constructor (props) {
         super(props);
         this.state = {
@@ -51,5 +50,12 @@ class App extends Component {
     }
 }
 
+/* eslint-disable no-undef */
 export default hot(module)(App)
 
+console.log('eslint disable'); // eslint-disable-line
+
+/* eslint-disable */
+let a;
+let b;
+/* eslint-enable */

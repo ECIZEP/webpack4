@@ -19,7 +19,7 @@ class PageA extends Component {
     }
     buttonClick () {
         this.setState({
-            count: ++this.state.count
+            count: this.state.count + 1
         })
     }
 }
