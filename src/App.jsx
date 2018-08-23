@@ -30,6 +30,7 @@ class App extends React.Component {
         this.state = {
             title: 'react, biu, biu, biu'
         }
+
     }
     render () {
         return (
@@ -37,16 +38,21 @@ class App extends React.Component {
                 <div className="container">
                     <h1>{this.state.title}</h1>
                     <img src={logo} alt=""/>
-                    <button>PageB</button>
-                    <button>PageB</button>
+                    <button onClick={this.toPageA}>pageA</button>
+                    <button onClick={this.toPageB}>PageB</button>
                     <Switch>
                         <Route path="/pageA" component={PageA} ></Route>
                         <Route path="/pageB" component={PageB} ></Route>
                     </Switch>
                 </div>
             </HashRouter>
-            
         )
+    }
+    toPageA () {
+        location.hash = '#/pageA';
+    }
+    toPageB () {
+        location.hash = '#/pageB';
     }
 }
 

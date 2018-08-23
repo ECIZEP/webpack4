@@ -11,11 +11,13 @@ class PageB extends React.Component {
         return (
             <div>
                 <p>i am page B</p>
+                <div><button onClick={this.toPageB1}>pageB1</button></div>
                 <Route path="/pageB/B1" component={B1}></Route>
             </div>
-            
-            
         )
+    }
+    toPageB1 () {
+        location.hash = '#/pageB/B1'
     }
 }
 

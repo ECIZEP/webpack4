@@ -13,7 +13,7 @@ class PageA extends Component {
             <div>
                 <p>i am page A</p>
                 <button onClick={this.buttonClick}>增加</button>
-                <p>{this.state.count}</p>
+                <span>{this.state.count}</span>
             </div>  
         )
     }
