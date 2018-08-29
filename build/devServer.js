@@ -7,6 +7,9 @@ const devConfig = require('./webpack.dev.config.js');
 const express = require('express');
 const app = express();
 
+const historyApiFallback = require('connect-history-api-fallback');
+app.use(historyApiFallback());
+
 const devCompiler = webpack(devConfig);
 app.use(devMiddleWare(devCompiler, {
     publicPath: devConfig.output.publicPath,
@@ -18,4 +21,8 @@ app.use(hotMiddleware(devCompiler, {
     heartbeat: 2000
 }))
 
+app.get('*', (req, res, next) => {
+    console.log(req.url);
+    next();
+})
 app.listen(3001);

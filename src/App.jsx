@@ -3,7 +3,7 @@ import { hot } from 'react-hot-loader';
 import Loadable from 'react-loadable';
 import './index.less';
 
-import { HashRouter, Route, Switch} from 'react-router-dom';
+import { BrowserRouter, Link, Route, Switch} from 'react-router-dom';
 const PageA = Loadable({
     loader: () => import(
         /* webpackChunkName: "pageA" */
@@ -23,45 +23,39 @@ import logo from '../public/images/react-logo.png'
 /* if(module.hot){
     module.hot.accept();
 } */
+
+import { FormattedMessage } from 'react-intl';
   
 class App extends React.Component {
     constructor (props) {
         super(props);
+        console.log(this.props);
         this.state = {
             title: 'react, biu, biu, biu'
         }
-
+        this.test = this.test.bind(this)
     }
     render () {
         return (
-            <HashRouter>
+            <BrowserRouter>
                 <div className="container">
-                    <h1>{this.state.title}</h1>
-                    <img src={logo} alt=""/>
-                    <button onClick={this.toPageA}>pageA</button>
-                    <button onClick={this.toPageB}>PageB</button>
+                    <h1>
+                        <FormattedMessage id="index" />
+                    </h1>
+                    <img src={logo} alt="" onClick={this.test} />
+                    <Link to="/pageA"><button>pageA</button></Link>
+                    <Link to="/pageB"><button>PageB</button></Link>
                     <Switch>
                         <Route path="/pageA" component={PageA} ></Route>
                         <Route path="/pageB" component={PageB} ></Route>
                     </Switch>
                 </div>
-            </HashRouter>
+            </BrowserRouter>
         )
     }
-    toPageA () {
-        location.hash = '#/pageA';
-    }
-    toPageB () {
-        location.hash = '#/pageB';
+    test () {
+        console.log(this.props);
     }
 }
 
-/* eslint-disable no-undef */
 export default hot(module)(App)
-
-console.log('eslint disable'); // eslint-disable-line
-
-/* eslint-disable */
-let a;
-let b;
-/* eslint-enable */

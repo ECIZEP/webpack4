@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "demo": "webpack --config ./build/webpack.demo.config.js  --progress --hide-modules",
     "build": "webpack --config ./build/webpack.prod.config.js  --progress --hide-modules",
     "dev": "node ./build/devServer.js"
   },
@@ -19,6 +20,7 @@
     "babel-eslint": "^8.2.6",
     "babel-loader": "8.0.0-beta.4",
     "clean-webpack-plugin": "^0.1.19",
+    "connect-history-api-fallback": "^1.5.0",
     "css-loader": "^1.0.0",
     "eslint": "^5.3.0",
     "eslint-loader": "^2.1.0",
@@ -42,10 +44,13 @@
   "dependencies": {
     "@babel/polyfill": "^7.0.0-rc.1",
     "@babel/runtime": "^7.0.0-rc.1",
+    "prop-types": "^15.6.2",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
+    "react-intl": "^2.4.0",
     "react-loadable": "^5.5.0",
-    "react-router-dom": "^4.3.1"
+    "react-router-dom": "^4.3.1",
+    "redux": "^4.0.0"
   },
   "browserslist": [
     "IE >= 10",

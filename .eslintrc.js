@@ -16,8 +16,15 @@ module.exports = {
         'eslint:recommended',
         'plugin:react/recommended'
     ],
+    settings: {
+        react: {
+          createClass: "createReactClass", 
+          pragma: "React",  // Pragma to use, default to "React"
+          version: "16.4.2", // React version, default to the latest React stable release
+        }
+    },
     // add your custom rules here
     rules: {
-
+        "no-console": 0
     }
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 
 import B1 from './children/pageB1.jsx';
 
@@ -11,13 +11,10 @@ class PageB extends React.Component {
         return (
             <div>
                 <p>i am page B</p>
-                <div><button onClick={this.toPageB1}>pageB1</button></div>
+                <Link to="/pageB/B1"><button>pageB1</button></Link>
                 <Route path="/pageB/B1" component={B1}></Route>
             </div>
         )
-    }
-    toPageB1 () {
-        location.hash = '#/pageB/B1'
     }
 }
 

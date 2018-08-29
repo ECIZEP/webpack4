@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import {withRouter} from "react-router-dom";
+import PropTypes from 'prop-types';
 
 class PageA extends Component {
     constructor (props) {
@@ -11,17 +13,23 @@ class PageA extends Component {
     render () {
         return (
             <div>
-                <p>i am page A</p>
+                <p>i am page AAAA</p>
                 <button onClick={this.buttonClick}>增加</button>
                 <span>{this.state.count}</span>
             </div>  
         )
     }
     buttonClick () {
-        this.setState({
+        
+        this.props.history.push('/pageB');
+        /* this.setState({
             count: this.state.count + 1
-        })
+        }) */
     }
 }
 
-export default PageA;
+PageA.propTypes = {
+    history: PropTypes.object
+}
+
+export default withRouter(PageA);
