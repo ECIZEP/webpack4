@@ -20,21 +20,15 @@ const PageB = Loadable({
 })
 import logo from '../public/images/react-logo.png'
 
-/* if(module.hot){
-    module.hot.accept();
-} */
-
 import { FormattedMessage } from 'react-intl';
   
 class App extends React.Component {
+
     constructor (props) {
         super(props);
-        console.log(this.props);
-        this.state = {
-            title: 'react, biu, biu, biu'
-        }
-        this.test = this.test.bind(this)
+        console.log(this);
     }
+
     render () {
         return (
             <BrowserRouter>
@@ -42,7 +36,7 @@ class App extends React.Component {
                     <h1>
                         <FormattedMessage id="index" />
                     </h1>
-                    <img src={logo} alt="" onClick={this.test} />
+                    <img src={logo} />
                     <Link to="/pageA"><button>pageA</button></Link>
                     <Link to="/pageB"><button>PageB</button></Link>
                     <Switch>
@@ -52,9 +46,6 @@ class App extends React.Component {
                 </div>
             </BrowserRouter>
         )
-    }
-    test () {
-        console.log(this.props);
     }
 }
 
