@@ -7,7 +7,7 @@ const baseConfig = require('./webpack.base.config.js');
 module.exports = merge(baseConfig, {
     mode: "development",
     entry: {
-        app: ['./src/index.jsx', 'webpack-hot-middleware/client?path=/__hmr&reload=true']
+        app: ['./src/index.js', ]
     },
     output: {
         publicPath: '/'
@@ -17,7 +17,7 @@ module.exports = merge(baseConfig, {
             template: 'index.html',
             filename: 'index.html'
         }),
-        new webpack.HotModuleReplacementPlugin()
+        // new webpack.HotModuleReplacementPlugin()
     ],
     devtool: 'none'
 });
