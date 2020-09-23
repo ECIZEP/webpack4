@@ -8,7 +8,7 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 module.exports = merge(baseConfig, {
     mode: "development",
     entry: {
-        app: ['./test/index.js', /* 'webpack-hot-middleware/client?path=/__hmr&reload=true' */]
+        app: ['./src/index.jsx', ]
     },
     output: {
         publicPath: '/'

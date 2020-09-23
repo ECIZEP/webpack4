@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {withRouter} from "react-router-dom";
+import store from '../../store/index';
 import PropTypes from 'prop-types';
 
 class PageA extends Component {
@@ -9,6 +10,11 @@ class PageA extends Component {
             count: 0
         }
         this.buttonClick = this.buttonClick.bind(this);
+    }
+
+    componentDidMount() {
+        console.log(store.getState());
+        store.dispatch({ type:  'INCREMENT'});
     }
     render () {
         return (

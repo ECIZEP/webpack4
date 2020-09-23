@@ -20,7 +20,6 @@ const PageB = Loadable({
 })
 import logo from '../public/images/react-logo.png'
 
-import { FormattedMessage } from 'react-intl';
   
 class App extends React.Component {
 
@@ -33,9 +32,7 @@ class App extends React.Component {
         return (
             <BrowserRouter>
                 <div className="container">
-                    <h1>
-                        <FormattedMessage id="index" />
-                    </h1>
+                    <h1>hello react</h1>
                     <img src={logo} />
                     <Link to="/pageA"><button>pageA</button></Link>
                     <Link to="/pageB"><button>PageB</button></Link>
