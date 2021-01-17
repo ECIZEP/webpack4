@@ -10,6 +10,9 @@ module.exports = {
         chunkFilename: '[name].[hash:8].js'
     },
     resolve: {
+        alias: {
+            '@common': path.resolve(__dirname, '../src/common')
+        },
         //后缀名自动补全
         extensions: ['.js', '.jsx', '.less', '.scss', '.css'],
     },
